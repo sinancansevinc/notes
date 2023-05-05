@@ -8,6 +8,7 @@ router = routers.DefaultRouter()
 router.register(r'notes', views.NoteViewSet)
 
 urlpatterns = [
+    
 ]
 
 urlpatterns+= router.urls

@@ -12,14 +12,19 @@ const NotesList = () => {
     let getNotes = async () => {
         let response = await fetch("http://localhost:8000/api/notes/")
         let data = await response.json()
-        console.log('DATA:', data)
+        console.log(data)
         setNotes(data)
 
     }
 
     return (
         <div>
-            <p>Notes</p>
+            <div className='notes-list'>
+                {notes.map((note, index) => (
+                    <h3 key={index}>{note.title}</h3>
+                )
+                )}
+            </div>
         </div>
     )
 }
