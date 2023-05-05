@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ListItem from '../components/ListItem'
 
 const NotesList = () => {
 
@@ -8,11 +9,9 @@ const NotesList = () => {
         getNotes()
 
     }, [])
-
     let getNotes = async () => {
         let response = await fetch("http://localhost:8000/api/notes/")
         let data = await response.json()
-        console.log(data)
         setNotes(data)
 
     }
@@ -20,10 +19,12 @@ const NotesList = () => {
     return (
         <div>
             <div className='notes-list'>
-                {notes.map((note, index) => (
-                    <h3 key={index}>{note.title}</h3>
-                )
-                )}
+                {
+                    notes.map((note, index) => (
+                        <ListItem key={index} note={note} />
+                    )
+                    )
+                }
             </div>
         </div>
     )
