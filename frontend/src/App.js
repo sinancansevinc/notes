@@ -18,7 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<NotesList />} />
-          <Route path="/note/:id" element={<NotePage />} />
+          <Route path="/note/:id" Component={NotePage} />
         </Routes>
 
       </div>
